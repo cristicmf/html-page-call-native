@@ -1,4 +1,9 @@
-# HTML5页面调起原生APP
+# html5 call native app
+页面调起原生app
+- 不同平台的兼容和策略处理
+-常用的工具方法
+
+## HTML5页面调起原生APP
 #### android、ios调起的方式
 ##### Schame + Android Itent
 ##### Schema ＋　Universal links（IOS9+）
