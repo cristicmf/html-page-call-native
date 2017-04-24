@@ -1,7 +1,8 @@
 # html5 call native app
 页面调起原生app
-- 不同平台的兼容和策略处理
-- 常用的工具方法
+- 调起app，然后下载APP
+- 不同兼容和策略处理，微信应用宝,微博中间页
+
 
 ## HTML5页面调起原生APP
 #### android、ios调起的方式
@@ -9,13 +10,59 @@
 ##### Schema ＋　Universal links（IOS9+）
 
 #### 调用的方式
- <a href="ftnn:login">拉起手雷</a>
- <iframe src="ftnn:login"></iframe>
- window.location.href= "ftnn:login";
-由于无法确定是否安装了客户端，因此通过window.location = schema的方式可能导致浏览器跳转到错误页；所以通过iframe.src或a.href载入schema是目前比较常见的方法；
+ - <a href="ftnn:login">拉起手雷</a>
+ - <iframe src="ftnn:login"></iframe>
+ - window.location.href= "ftnn:login";
+ - 说明：由于无法确定是否安装了客户端，因此通过window.location = schema的方式可能导致浏览器跳转到错误页；所以通过iframe.src或a.href载入schema是目前比较常见的方法；
+ - 代码实现
+ ```
+ export const locationCallAPP = (url, downloadUrl, ios9Type) => {
+  location.href = url
+  var timeout
+  var t = Date.now()
+  var interval = ios9Type ? 2500 : 1000
+  timeout && clearTimeout(timeout)
+  timeout = setTimeout(function() {
+    if (Date.now() - t < interval + 1000) {
+      location.href = downloadUrl
+    }
+  }, interval)
+}
 
-####  特例：微信
-meta中添加，name="apple-itunes-app" content="app-id=,app-argument="
+export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
+  console.log('[iframeCallAPP1]'+url)
+  var timeout
+  var t = Date.now()
+  var interval = ios9Type ? 2500 : 2000
+  timeout && clearTimeout(timeout)
+  timeout = setTimeout(function () {
+    if (Date.now() - t < interval+1000) {
+       console.log('[iframeCallAPP2]'+downloadUrl)
+      location.href = downloadUrl
+    }
+  }, interval)
+  if (ios9Type) {
+    location.href = url
+  }
+  var docNode = document
+  var iframe = docNode.createElement('iframe')
+  iframe.setAttribute('src', url)
+  // iframe.setAttribute('target', '_self');
+  iframe.setAttribute('style', 'display:none')
+  docNode.body.appendChild(iframe)
+  setTimeout(function () {
+    docNode.body.removeChild(iframe)
+  }, 200)
+}
+ ```
+
+####  特殊场景说明
+##### 微信
+- 应用宝deeplink
+##### 微博
+- 中间提示页
+    - 类似于“请在浏览器打开”
+
 #### 遇到的问题：不知道手机有没有安装app
     尝试调起APP，如果不能，使用setTimeout进行下载，所以需要进行处理，如下图：
     $(document).on('visibilitychange webkitvisibilitychange', function() {
