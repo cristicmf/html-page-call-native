@@ -1,7 +1,10 @@
 # HTML5 call native app
+## 背景
+为了提升app的曝光和app的用户新增，添加H5分享页的应用场景是必不可少的，但是各种平台环境不一，要如何兼容和策略处理。下面会一一说明
+
 ## 1. 页面调起原生app
-- 调起app，然后下载APP
-- 不同兼容和策略处理，微信应用宝,微博中间页
+- 调起原生 app，然后下载APP
+- 不同平台的兼容和策略处理，比如微信,微博，QQ，QQ空间，浏览器
 
 
 ## 2. HTML5页面调起原生APP
@@ -78,3 +81,5 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
         
 当手机安装了App，能调起app后就不进行下载
 没有安装App,过了一段时间，进行下载
+## 6.ios universal link
+## 7.客户端实现
