@@ -82,4 +82,8 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 当手机安装了App，能调起app后就不进行下载
 没有安装App,过了一段时间，进行下载
 ## 6.ios universal link
+
 ## 7.客户端实现
+
+## 8.文件结构说明
+
