@@ -24,6 +24,7 @@
  ftnn:login是页面和App的协议
  - 说明：由于无法确定是否安装了客户端，因此通过window.location = schema的方式可能导致浏览器跳转到错误页；所以通过iframe.src或a.href载入schema是目前比较常见的方法；
  - 代码实现
+ 
  ```
  export const locationCallAPP = (url, downloadUrl, ios9Type) => {
   location.href = url
@@ -63,6 +64,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
     docNode.body.removeChild(iframe)
   }, 200)
 }
+
  ```
 
 ##  4. 特殊场景说明
