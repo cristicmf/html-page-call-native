@@ -13,9 +13,15 @@
 ##### Schema ＋　Universal links（IOS9+）
 
 ## 3.调用的方式
- - <a href="ftnn:login">拉起手雷</a>
- - <iframe src="ftnn:login"></iframe>
- - window.location.href= "ftnn:login";
+ ##### 3.1  使用A标签
+ <a href="ftnn:login">拉起APP</a>
+ ftnn:login是页面和App的协议
+ ##### 3.2 使用iframe
+ <iframe src="ftnn:login"></iframe>
+ ftnn:login是页面和App的协议
+ ##### 3.3 使用 window.location.href
+ window.location.href= "ftnn:login";
+ ftnn:login是页面和App的协议
  - 说明：由于无法确定是否安装了客户端，因此通过window.location = schema的方式可能导致浏览器跳转到错误页；所以通过iframe.src或a.href载入schema是目前比较常见的方法；
  - 代码实现
  ```
@@ -62,11 +68,12 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 ##  4. 特殊场景说明
 ##### 微信
 - 应用宝deeplink
+
 ##### 微博
 - 中间提示页
     - 类似于“请在浏览器打开”
 
-## 5. 遇到的问题：不知道手机有没有安装app
+## 5. 遇到的问题：网页没有办法判断手机是否安装app
     尝试调起APP，如果不能，使用setTimeout进行下载，所以需要进行处理，如下图：
     $(document).on('visibilitychange webkitvisibilitychange', function() {
                 var tag = document.hidden || document.webkitHidden;
