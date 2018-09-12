@@ -175,7 +175,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 
 ## 3. H5 接入 App通常有两种方式
 
-##### 3.1 在线H5  
+### 3.1 在线H5  
 
 这是最常见的一种方式。需要提前约定好scheme和页面url,并将H5代码部署到服务器上。当用WebView 加载并打开URL，即可访问页面。
 
@@ -201,7 +201,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 
 通常，这种方式更适用在一些比较轻量级的页面上，例如一些帮助页、提示页、使用攻略等页面。这些页面的特点是功能性不强，不太需要复杂的功能协议，且不需要离线使用。在一些第三方页面接入上，也会使用这种方式。
 
-##### 3.2 内置包H5
+### 3.2 内置包H5
 
 嵌入话的本地化发昂视，需要提前约定好scheme和页面url,并将代码进行打包后下发到客户端，并由客户端直接解压到本地储存中。
 
@@ -220,7 +220,42 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 ---
 
 ## 4. React Native 框架
+React Native使你只使用JavaScript也能编写原生移动应用。 它在设计原理上和React一致，通过声明式的组件机制来搭建丰富多彩的用户界面。React Native产出的并不是`混合应用`,最终产品是一个真正的移动应用，从使用感受上和用Objective-C或Java编写的应用相比几乎是无法区分的。 React Native所使用的基础UI组件和原生应用完全一致。
 
+### 4.1 开发环境搭建
+##### 推荐安装
+
+```
+- Node （v8.3 以上版本）
+- watchman
+- React Native 命令行工具
+- JDK （1.8版本）
+- Andriod Studio。
+
+```
+
+安卓开发见[具体操作详情](https://reactnative.cn/docs/getting-started/)
+
+###### 说明：
+可以使用任何编辑器来开发应用（编写 js 代码），但你仍然必须安装 Android Studio 来获得编译 Android 应用所需的工具和环境。可以使用模拟器、真机进行开发和测试。（推荐使用vscode开发js、连接使用真机）
+
+
+###### 注意点：
+
+```
+1. 使用SDK1.8版本，否则会失败
+2. 配置ANDROID_HOME，请每次操作完，务必检查
+```
+
+### 4.2 组件
+项目架构或者组件分层类似于react.js，但是一些特殊的组件也是存在差异
+
+#### 需要关注
+1. 图片资源的引入，在android和ios端有差异
+
+
+### 4.3 其他
+1. 集成到原有react native，需要留意原来的版本
 
 ## 5. Weex框架
 
