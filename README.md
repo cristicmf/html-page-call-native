@@ -173,9 +173,11 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 ### 2.8 ios universal link
 
 
-## 3. H5 接入 App通常有两种方式
+## 3. 混合开发
+混合开发的本质就是将一些 `Native` 的 `UI` 替换成`webview` ，`webview` 的内容可以由前端开发，和开发Web App差不多，而和Web App相比，这些webview里的html5页面需要和Native`通信`。详细内容见第一章节。
 
-### 3.1 在线H5  
+### H5 接入 App通常有两种方式
+#### 3.1 在线H5  
 
 这是最常见的一种方式。需要提前约定好scheme和页面url,并将H5代码部署到服务器上。当用WebView 加载并打开URL，即可访问页面。
 
@@ -201,7 +203,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 
 通常，这种方式更适用在一些比较轻量级的页面上，例如一些帮助页、提示页、使用攻略等页面。这些页面的特点是功能性不强，不太需要复杂的功能协议，且不需要离线使用。在一些第三方页面接入上，也会使用这种方式。
 
-### 3.2 内置包H5
+#### 3.2 内置包H5
 
 本地化页面，需要提前约定好scheme和页面url,并将代码进行打包后下发到客户端，并由客户端直接解压到本地储存中。
 
