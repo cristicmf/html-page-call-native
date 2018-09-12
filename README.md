@@ -57,19 +57,26 @@ android和ios一样通过自定义协议进行通信。
 ### 2.3 调用的方式
 
 协议说明:
+```
 [scheme]://[host]/[path]?[query]
 [scheme]://[host]/[path]?param1=1&param2=2 是页面和App的协议
-例子：协议:protoxxx://share/page/?type=2
+```
 
-##### 3.1  使用A标签
+例子：
+
+```
+协议:protoxxx://share/page/?type=2
+```
+
+##### 1.  使用A标签
  <a href="protoxxx://share/page/?type=2">拉起APP</a>
  protoxxx://share/page/?type=2是页面和App的协议
  
-##### 3.2 使用iframe
+##### 2. 使用iframe
  <iframe src="protoxxx://share/page/?type=2"></iframe>
  protoxxx://share/page/?type=2是页面和App的协议
  
-##### 3.3 使用 window.location.href
+##### 3. 使用 window.location.href
  ```
  window.location.href= "protoxxx://share/page/?type=2";
  ```
@@ -164,7 +171,8 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 ```
 
 ### 2.8 ios universal link
----
+
+
 ## 3. H5 接入 App通常有两种方式
 
 ##### 在线H5  
@@ -186,7 +194,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 
 ##### 内置包H5
 
-这是一种本地化的嵌入方式，需要提前约定好scheme和页面url,并将代码进行打包后下发到客户端，并由客户端直接解压到本地储存中。
+嵌入话的本地化发昂视，需要提前约定好scheme和页面url,并将代码进行打包后下发到客户端，并由客户端直接解压到本地储存中。
 
 ###### 优点:
 - 页面代码本地化，首屏加载速度快，用户体验更好；
@@ -194,11 +202,14 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 
 ###### 缺点：
 - 开发流程/更新机制复杂化，需要客户端，甚至服务端的共同协作；
-- 会相应的增加 App 包体积；
+- 会相应的增加`App`包体积；
+- 更新页面代码，需要客户端发版
 
 该方法适用于缓存一般不会改的公用代码库和一些版本。
 这两种接入方式均有优缺点，根据不同场景进行选择。
+
 ---
+
 ## 4. React Native 框架
 
 
@@ -212,4 +223,8 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 
 ###### 参数传递方式
 由于 WebView 对 URL 会有长度的限制，当需要传递的参数过长时，可能会导致被截断，例如传递base64或者传递大量数据时。
+
+
+#### 参考
+
 
