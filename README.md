@@ -46,6 +46,8 @@ android和ios一样通过自定义协议进行通信。
 5. Native App和混合式页面比较
 ```
 
+---
+
 ## 2. HTML5页面调起原生APP
 `android`、`ios` 调起的方式
 2. Schame + Android Itent
@@ -72,10 +74,12 @@ android和ios一样通过自定义协议进行通信。
  ```
  说明：
  由于无法确定是否安装了客户端，因此通过window.location = schema的方式可能导致浏览器跳转到错误页；所以通过iframe.src或a.href载入schema是目前比较常见的方法；
+
+---
+
+### 2.4 代码实现
  
-### 4. 代码实现
- 
-#### 4.1 location 拉起方式
+#### 2.4.1 location 拉起方式
  ```
  export const locationCallAPP = (url, downloadUrl, ios9Type) => {
   location.href = url
@@ -90,7 +94,7 @@ android和ios一样通过自定义协议进行通信。
   }, interval)
 }
 ```
-#### 4.2 iframe 方式
+#### 2.4.2 iframe 方式
 ```
 export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
   console.log('[iframeCallAPP1]'+url)
@@ -121,8 +125,9 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
  ```
 说明：
 
+---
 
-###  5. 特殊场景说明
+###  2.5 特殊场景说明
 特殊app的场景，需要采用特定的处理策略，例如：微信、微博
 
 1.微信
@@ -132,7 +137,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 - 中间提示页：类似于微信中常见的“请在浏览器打开”
 
 
-### 7. 遇到的问题：网页没有办法判断手机是否安装app
+### 2.6 遇到的问题：网页没有办法判断手机是否安装app
 
 尝试调起APP，如果不能，使用setTimeout进行下载，所以需要进行处理，如下图：
  
@@ -157,7 +162,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 2. 没有安装App,过了一段时间，进行下载
 ```
 
-### 8.ios universal link
+### 2.8 ios universal link
 
 
 ## 9. React Native 框架
