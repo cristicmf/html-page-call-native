@@ -107,6 +107,7 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 
 ###  5. 特殊场景说明
 特殊app的场景，需要采用特定的处理策略，例如：微信、微博
+
 1.微信
 - 应用宝deeplink
 
@@ -114,8 +115,10 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 - 中间提示页
     - 类似于“请在浏览器打开”
 
+
 ### 7. 遇到的问题：网页没有办法判断手机是否安装app
-    尝试调起APP，如果不能，使用setTimeout进行下载，所以需要进行处理，如下图：
+
+尝试调起APP，如果不能，使用setTimeout进行下载，所以需要进行处理，如下图：
  
  ```
     $(document).on('visibilitychange webkitvisibilitychange', function() {
@@ -130,8 +133,14 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
         })
         
 ```       
-当手机安装了App，能调起app后就不进行下载
-没有安装App,过了一段时间，进行下载
+
+说明：
+
+```
+1. 当手机安装了App，能调起app后就不进行下载
+2. 没有安装App,过了一段时间，进行下载
+```
+
 ### 8.ios universal link
 
 
