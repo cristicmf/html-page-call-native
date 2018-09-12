@@ -9,14 +9,16 @@
 所以混合开发的本质就是将一些 `Native` 的 `UI` 替换成`webview` ，`webview` 的内容可以由前端开发，和开发Web App差不多，而和Web App相比，这些webview里的html5页面需要和Native`通信`。
 
 ### 1.2 Native调用Js
-ios
-通过 `webview` 的 `stringByEvaluatingJavaScriptFromString`实现，本质是调用window下的方法。
-`
+
+ios通过 `webview` 的 `stringByEvaluatingJavaScriptFromString`实现，本质是调用window下的方法。
+
+```
 // Swift
 webview.stringByEvaluatingJavaScriptFromString("Math.random()")  
 // OC
 [webView stringByEvaluatingJavaScriptFromString:@"Math.random();"];
-`
+```
+
 
 android
 通过 `webview` 的 `loadUrl` 进行调用。
@@ -51,18 +53,22 @@ android和ios一样通过自定义协议进行通信。
 
 ### 2.3 调用的方式
 
-说明：`proto:params` 是页面和App的协议
-##### 3.1  使用A标签
- <a href="proto:params">拉起APP</a>
- proto:params是页面和App的协议
+协议说明:
+[scheme]://[host]/[path]?[query]
+[scheme]://[host]/[path]?param1=1&param2=2 是页面和App的协议
+例子：协议:protoxxx://share/page/?type=2
+
+##### 3.1  使用A标签
+ <a href="protoxxx://share/page/?type=2">拉起APP</a>
+ protoxxx://share/page/?type=2是页面和App的协议
  
 ##### 3.2 使用iframe
- <iframe src="ftnn:login"></iframe>
- proto:params是页面和App的协议
+ <iframe src="protoxxx://share/page/?type=2"></iframe>
+ protoxxx://share/page/?type=2是页面和App的协议
  
 ##### 3.3 使用 window.location.href
  ```
- window.location.href= "ftnn:login";
+ window.location.href= "protoxxx://share/page/?type=2";
  ```
  说明：
  由于无法确定是否安装了客户端，因此通过window.location = schema的方式可能导致浏览器跳转到错误页；所以通过iframe.src或a.href载入schema是目前比较常见的方法；
@@ -154,9 +160,15 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 ### 8.ios universal link
 
 
-## React Native 框架
+## 9. React Native 框架
 
-## WeeX
 
-## Native App和混合式页面比较
+## 10. WeeX
+
+## 11. Native App和混合式页面比较
+
+## 12. 注意事项 :halloween
+
+###### 参数传递方式
+由于 WebView 对 URL 会有长度的限制，当需要传递的参数过长时，可能会导致被截断，例如传递base64或者传递大量数据时。
 
