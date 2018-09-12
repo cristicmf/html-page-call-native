@@ -6,20 +6,25 @@
 - `JsBridge`: 一种用来连接Web和Native的技术方案，让Native端(Swift, OC, Java)和Web端(JavaScript)可以互相调用。
 - `webview`: Native组件，有类似浏览器的功能。
 
-所以混合开发的本质就是将一些Native的UI替换成webview，webview的内容可以由前端开发，和开发Web App差不多，而和Web App相比，这些webview里的html5页面需要和Native`通信`。
+所以混合开发的本质就是将一些 `Native` 的 `UI` 替换成`webview` ，`webview` 的内容可以由前端开发，和开发Web App差不多，而和Web App相比，这些webview里的html5页面需要和Native`通信`。
 
 2. Native调用Js
 ios
-通过webview的stringByEvaluatingJavaScriptFromString实现，本质是调用window下的方法。
+通过 `webview` 的 `stringByEvaluatingJavaScriptFromString`实现，本质是调用window下的方法。
+`
 // Swift
 webview.stringByEvaluatingJavaScriptFromString("Math.random()")  
 // OC
 [webView stringByEvaluatingJavaScriptFromString:@"Math.random();"];
+`
 
 android
-通过webview的loadUrl进行调用。
+通过 `webview` 的 `loadUrl` 进行调用。
+
+```
 // 调用js中的JSBridge.trigger方法
 webView.loadUrl("javascript:JSBridge.trigger('webviewReady')");  
+```
 
 3. Js调用Native
 ios
@@ -35,7 +40,7 @@ android和ios一样通过自定义协议进行通信。
 3. 在`原生app`的webview中，页面调用原生的接口
 
 ## 2. HTML5页面调起原生APP
-android、ios调起的方式
+`android`、`ios` 调起的方式
 2. Schame + Android Itent
 3. Schema ＋　Universal links（IOS9+）
 
