@@ -277,3 +277,4 @@ React Native使你只使用JavaScript也能编写原生移动应用。 它在设
 ---
 Addition
 - 该项目使用的是vue2.0版本
+- add Android demo
