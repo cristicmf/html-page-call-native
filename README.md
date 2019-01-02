@@ -275,4 +275,5 @@ React Native使你只使用JavaScript也能编写原生移动应用。 它在设
 
 ---
 - 目前只支持vue2.0版本
+- add new version
 
