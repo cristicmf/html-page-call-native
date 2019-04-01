@@ -31,5 +31,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 - 分享页常用hack处理逻辑的封装
 - 工具库【对象的常用处理、时间格式处理】
 
+- 更多内容的集成
+
 
 
