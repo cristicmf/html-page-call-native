@@ -1,3 +1,6 @@
+env:
+  global:
+  - CODECOV_TOKEN="9b77cfea-d2b7-41c7-9e60-cd568eb1959e"
 
 language: node_js
 script: true
