@@ -4,7 +4,8 @@ env:
 
 language: node_js
 script: true
-install: true
+install:
+  - npm install -g codecov
 
 script:
 - codecov
