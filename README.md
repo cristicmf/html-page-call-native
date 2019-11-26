@@ -131,7 +131,6 @@ export const iframeCallAPP = (url, downloadUrl, ios9Type) => {
 }
 
  ```
-说明：
 
 ---
 
